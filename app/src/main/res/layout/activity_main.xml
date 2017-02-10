@@ -104,5 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame"
-        android:layout_above="@+id/ll"></FrameLayout>
+        android:layout_above="@+id/ll">
+
+    </FrameLayout>
 </RelativeLayout>
