@@ -14,50 +14,90 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:id="@+id/ll"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/homell"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/homepage"
-            android:text="首页"
-            android:textSize="20dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"/>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homeimg"
+                android:src="@mipmap/shou"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homepage"
+                android:text="首页"
+                android:textSize="15dp"/>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/findll"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/find"
-            android:text="发现"
-            android:textSize="20dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"/>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/findimg"
+                android:src="@mipmap/vip"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/find"
+                android:text="发现"
+                android:textSize="15dp"/>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/focusll"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/focus"
-            android:text="关注"
-            android:textSize="20dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"/>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/focusimg"
+                android:src="@mipmap/guanzhu"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/focus"
+                android:text="关注"
+                android:textSize="15dp"/>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/mell"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/me"
-            android:text="我的"
-            android:textSize="20dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"/>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/meimg"
+                android:src="@mipmap/wode"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/me"
+                android:text="我的"
+                android:textSize="15dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <FrameLayout
