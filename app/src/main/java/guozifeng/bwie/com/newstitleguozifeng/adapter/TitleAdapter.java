@@ -1,4 +1,4 @@
-package guozifeng.bwie.com.newstitleguozifeng.help;
+package guozifeng.bwie.com.newstitleguozifeng.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -12,11 +12,11 @@ import java.util.List;
  * Created by Administrator on 2017/2/12.
  * 作用：
  */
-public class MyAdapter extends FragmentPagerAdapter{
+public class TitleAdapter extends FragmentPagerAdapter{
     private List<Fragment> list;
     private Context context;
     private String[] title;
-    public MyAdapter(FragmentManager fm,Context context,String[] title) {
+    public TitleAdapter(FragmentManager fm, Context context, String[] title) {
         super(fm);
         this.context=context;
         this.title=title;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:id="@+id/searchll"
+        android:background="#f44"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今日头条"
+            android:textSize="22dp"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="240dp"
+            android:layout_height="30dp"
+            android:background="@drawable/search_jiao"
+            android:hint="  搜你想搜的"
+            android:textSize="15dp"
+            android:cursorVisible="false"
+            android:id="@+id/editText"
+            />
+    </LinearLayout>
+</LinearLayout>

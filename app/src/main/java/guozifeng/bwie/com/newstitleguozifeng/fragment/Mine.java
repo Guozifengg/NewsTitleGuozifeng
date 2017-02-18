@@ -14,7 +14,7 @@ import guozifeng.bwie.com.newstitleguozifeng.R;
  * Created by Administrator on 2017/2/10.
  * 作用：
  */
-public class Me extends Fragment {
+public class Mine extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

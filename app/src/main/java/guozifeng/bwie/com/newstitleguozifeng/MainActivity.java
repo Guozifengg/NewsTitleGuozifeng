@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Find;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Focus;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Homepage;
-import guozifeng.bwie.com.newstitleguozifeng.fragment.Me;
+import guozifeng.bwie.com.newstitleguozifeng.fragment.Mine;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
@@ -78,7 +76,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setColor(2);
                 break;
             case R.id.mell:
-                addFragment(new Me());
+                addFragment(new Mine());
                 setBackground(3);
                 setColor(3);
                 break;
