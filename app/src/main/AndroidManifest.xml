@@ -3,7 +3,7 @@
     package="guozifeng.bwie.com.newstitleguozifeng">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <application
         android:name=".help.MyApplication"
         android:allowBackup="true"
@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SearchActivity" />
-        <activity android:name=".activity.AddTitleActivity"></activity>
+        <activity android:name=".activity.AddTitleActivity" />
+        <activity android:name=".activity.WebViewActivity"></activity>
     </application>
 
 </manifest>

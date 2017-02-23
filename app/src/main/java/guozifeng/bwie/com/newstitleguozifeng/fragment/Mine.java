@@ -1,11 +1,15 @@
 package guozifeng.bwie.com.newstitleguozifeng.fragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import guozifeng.bwie.com.newstitleguozifeng.R;
 
@@ -14,11 +18,30 @@ import guozifeng.bwie.com.newstitleguozifeng.R;
  * Created by Administrator on 2017/2/10.
  * 作用：
  */
-public class Mine extends Fragment {
+public class Mine extends Fragment{
+
+    private LinearLayout yejian;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view1=View.inflate(getActivity(), R.layout.me,null);
+
+        yejian = (LinearLayout) view1.findViewById(R.id.yejianmoshi);
+
         return view1;
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        yejian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//               yeJian.getYe();
+
+            }
+        });
+    }
+
 }

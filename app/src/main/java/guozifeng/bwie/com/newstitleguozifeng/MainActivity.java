@@ -1,11 +1,15 @@
 package guozifeng.bwie.com.newstitleguozifeng;
 
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,7 +20,7 @@ import guozifeng.bwie.com.newstitleguozifeng.fragment.Focus;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Homepage;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Mine;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView[] textArray;
     private ImageView[] imgArray;
@@ -55,7 +59,24 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         addFragment(new Homepage());
         setBackground(0);
         setColor(0);
+
+        //夜间模式
+//        uiMode();
     }
+
+    /*private void uiMode() {
+        LinearLayout yejian = (LinearLayout) getSupportFragmentManager().findFragmentById(R.id.mineLayout).getView().findViewById(R.id.yejianmoshi);
+        yejian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                getDelegate().setLocalNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO
+                        ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                // 同样需要调用recreate方法使之生效
+                recreate();
+            }
+        });
+    }*/
 
     @Override
     public void onClick(View view) {

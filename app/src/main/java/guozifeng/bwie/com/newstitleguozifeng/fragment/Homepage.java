@@ -27,7 +27,7 @@ import guozifeng.bwie.com.newstitleguozifeng.adapter.TitleAdapter;
  * 作用：
  */
 public class Homepage extends Fragment{
-    private String[] title={"头条","足球","娱乐","体育","财经","科技","电影","汽车","电影","汽车",
+    private String[] title={"头条","足球","娱乐","体育","财经","科技","电影","汽车",
             "笑话","游戏","时尚","情感"};
     private String[] titleId={"T1348647909107","T1399700447917","T1348648517839","T1348649079062","T1348648756099",
             "T1348649580692","T1348648650048","T1348654060988", "T1350383429665","T1348654151579",
@@ -54,7 +54,7 @@ public class Homepage extends Fragment{
         TitleAdapter myAdapter = new TitleAdapter(getChildFragmentManager(),getActivity(),title);
         myAdapter.setList(list);
         //预加载
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(myAdapter);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
