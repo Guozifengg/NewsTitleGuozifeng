@@ -61,6 +61,7 @@ public class NewsAdapter extends BaseAdapter {
                 case TYPE_ITEM1:
                     view=View.inflate(context, R.layout.xlv_layout1,null);
                     viewHolder.title1 = (TextView) view.findViewById(R.id.title1);
+                    viewHolder.title12 = (TextView) view.findViewById(R.id.title12);
                     viewHolder.img11 = (ImageView) view.findViewById(R.id.img11);
                     break;
                 case TYPE_ITEM2:
@@ -85,6 +86,7 @@ public class NewsAdapter extends BaseAdapter {
         switch (type){
             case TYPE_ITEM1:
                 viewHolder.title1.setText(list.get(i).getTitle());
+                viewHolder.title12.setText(list.get(i).getSource());
                 ImageLoader.getInstance().displayImage(list.get(i).getImgsrc(),viewHolder.img11,options);
                 break;
             case TYPE_ITEM2:
@@ -139,5 +141,6 @@ public class NewsAdapter extends BaseAdapter {
         public ImageView img23;
         public TextView title3;
         public ImageView img31;
+        public TextView title12;
     }
 }

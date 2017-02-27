@@ -2,35 +2,71 @@ package guozifeng.bwie.com.newstitleguozifeng;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Find;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Focus;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Homepage;
 import guozifeng.bwie.com.newstitleguozifeng.fragment.Mine;
+import guozifeng.bwie.com.newstitleguozifeng.night.ThemeManager;
+import guozifeng.bwie.com.newstitleguozifeng.requestData.Message;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeManager.OnThemeChangeListener {
 
     private TextView[] textArray;
     private ImageView[] imgArray;
     private int[] img;
     private int[] img1;
+    private LinearLayout nightLyaout;
+    private ActionBar supportActionBar;
+    private RelativeLayout rlt;
+
+    private TextView xxtz;
+    private Fragment fragment;
+    private Homepage homepagef;
+    private Find findf;
+    private Focus focusf;
+    private Mine minef;
+
+    private TextView ttsc;
+    private TextView jdtg;
+    private TextView wybl;
+    private TextView yhfk;
+    private TextView xtsz;
+    private ImageView shouji;
+    private ImageView qq;
+    private ImageView weibo;
+    private ImageView nightButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //注册eventBus
+        ThemeManager.registerThemeChangeListener(this);
+        supportActionBar = getSupportActionBar();
+        EventBus.getDefault().register(this);
 
         LinearLayout homell = (LinearLayout) findViewById(R.id.homell);
         homell.setOnClickListener(this);
@@ -56,59 +92,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgArray = new ImageView[] {homeimg,findimg,focusimg,meimg};
         img = new int[]{R.mipmap.shou1,R.mipmap.vip1,R.mipmap.guanzhu1,R.mipmap.wode1};
         img1 = new int[]{R.mipmap.shou,R.mipmap.vip,R.mipmap.guanzhu,R.mipmap.wode};
-        addFragment(new Homepage());
+//        addFragment(new Homepage());
+        if(homepagef==null){
+            homepagef = new Homepage();
+        }
+            addFragment(homepagef);
+
         setBackground(0);
         setColor(0);
 
-        //夜间模式
-//        uiMode();
+        /*FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction tran = fm.beginTransaction();
+        tran.add(R.id.frame,new Homepage()).show(new Homepage())
+                .add(R.id.frame,new Find()).hide(new Find())
+                .add(R.id.frame,new Focus()).hide(new Focus())
+                .add(R.id.frame,new Mine()).hide(new Mine());
+        tran.commit();*/
+
     }
 
-    /*private void uiMode() {
-        LinearLayout yejian = (LinearLayout) getSupportFragmentManager().findFragmentById(R.id.mineLayout).getView().findViewById(R.id.yejianmoshi);
-        yejian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                getDelegate().setLocalNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO
-                        ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
-                // 同样需要调用recreate方法使之生效
-                recreate();
-            }
-        });
-    }*/
 
     @Override
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.homell:
-                addFragment(new Homepage());
+                if(homepagef==null){
+                    homepagef = new Homepage();
+                }
+                    addFragment(homepagef);
+
                 setBackground(0);
                 setColor(0);
                 break;
             case R.id.findll:
-                addFragment(new Find());
+                if(findf==null){
+                    findf = new Find();
+                }
+                addFragment(findf);
                 setBackground(1);
                 setColor(1);
                 break;
             case R.id.focusll:
-                addFragment(new Focus());
+                if(focusf==null){
+                    focusf = new Focus();
+                }
+                addFragment(focusf);
                 setBackground(2);
                 setColor(2);
                 break;
             case R.id.mell:
-                addFragment(new Mine());
+                if(minef==null){
+                    minef = new Mine();
+                }
+                addFragment(minef);
                 setBackground(3);
                 setColor(3);
                 break;
         }
     }
 
-    public void addFragment(Fragment fragment){
+    public void addFragment(Fragment f){
         FragmentManager manager=getSupportFragmentManager();
-        FragmentTransaction transaction=manager.beginTransaction();
-        transaction.replace(R.id.frame,fragment);
+        FragmentTransaction transaction = manager.beginTransaction();
+        if(fragment!=null){
+            transaction.hide(fragment);
+        }if(!f.isAdded()){
+            transaction.add(R.id.frame,f);
+        }
+
+        transaction.show(f);
         transaction.commit();
+        fragment=f;
     }
 
     public void setColor(int index){
@@ -129,5 +183,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     imgArray[i].setImageResource(img1[i]);
                 }
             }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getEvents(Message ev) {
+        rlt = (RelativeLayout) findViewById(R.id.main_layout);
+        LinearLayout nightBack = ev.getYejian();
+        xxtz = ev.getXxtz();
+        ttsc=ev.getTtsc();
+        jdtg=ev.getJdtg();
+        wybl=ev.getWybl();
+        yhfk=ev.getYhfk();
+        xtsz=ev.getXtsz();
+        shouji=ev.getShouji();
+        qq=ev.getQq();
+        weibo=ev.getWeibo();
+        nightButton=ev.getNightButton();
+        //设置监听
+        nightBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThemeManager.setThemeMode(ThemeManager.getThemeMode() == ThemeManager.ThemeMode.DAY ? ThemeManager.ThemeMode.NIGHT : ThemeManager.ThemeMode.DAY);
+
+            }
+        });
+    }
+
+    //关于夜间模式
+    public void initTheme() {
+        xxtz.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        ttsc.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        jdtg.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        wybl.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        yhfk.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        xtsz.setTextColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.textColor)));
+        rlt.setBackgroundColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.backgroundColor)));
+        // 设置标题栏颜色
+        if (supportActionBar != null) {
+            supportActionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary))));
+        }
+        // 设置状态栏颜色
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.setStatusBarColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary)));
+        }
+
+        if(xxtz.getCurrentTextColor()==Color.BLACK){
+            shouji.setImageResource(R.mipmap.shoujidenglu1);
+            qq.setImageResource(R.mipmap.qqdenglu1);
+            weibo.setImageResource(R.mipmap.weibodenglu1);
+            nightButton.setImageResource(R.mipmap.yejian);
+        }else{
+            shouji.setImageResource(R.mipmap.shoujidenglu2);
+            qq.setImageResource(R.mipmap.qqdenglu2);
+            weibo.setImageResource(R.mipmap.weibodenglu2);
+            nightButton.setImageResource(R.mipmap.rijian);
+        }
+    }
+
+    @Override
+    public void onThemeChanged() {
+        initTheme();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ThemeManager.unregisterThemeChangeListener(this);
     }
 }

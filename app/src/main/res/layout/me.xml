@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f3f3f3"
     android:id="@+id/mineLayout"
     >
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -57,13 +59,102 @@
             android:layout_marginTop="25dp"/>
     </RelativeLayout>
 
+
+        <RelativeLayout
+            android:id="@+id/enterSuccess"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/my_page_background">
+
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_width="70dp"
+                android:layout_centerVertical="true"
+                android:layout_height="70dp"
+                android:src="@mipmap/qqdenglu1"
+                android:id="@+id/toxiang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="独家记忆"
+                android:textSize="17dp"
+                android:textColor="#fff"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/toxiang"
+                android:layout_marginLeft="15dp"/>
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/toxiang"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#fff"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注"
+                        android:textColor="#fff"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#fff"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="粉丝"
+                        android:textColor="#fff"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#fff"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7天访客"
+                        android:textColor="#fff"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
     <LinearLayout
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:orientation="horizontal"
         android:id="@+id/yejianll"
-        android:background="@drawable/mine_item">
+        >
 
         <LinearLayout
             android:gravity="center_horizontal"
@@ -128,63 +219,89 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/xxtz"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="消息通知"
         android:textColor="#242424"
         android:textSize="17dp"
-        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
-        android:paddingLeft="15dp"
-        android:background="@drawable/mine_item"/>
+        android:paddingLeft="15dp" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/ttsc"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="头条商城"
         android:textColor="#242424"
         android:textSize="17dp"
-        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
-        android:paddingLeft="15dp"
-        android:background="@drawable/mine_item1"/>
+        android:paddingLeft="15dp" />
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/jdtg"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:text="京东特供"
         android:textColor="#242424"
         android:textSize="17dp"
     android:gravity="center_vertical"
-    android:paddingLeft="15dp"
-    android:background="@drawable/mine_item"/>
+    android:paddingLeft="15dp" />
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/wybl"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="我要爆料"
         android:textColor="#242424"
         android:textSize="17dp"
         android:gravity="center_vertical"
-        android:paddingLeft="15dp"
-        android:background="@drawable/mine_item1"/>
+        android:paddingLeft="15dp" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/yhfk"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="用户反馈"
         android:textColor="#242424"
         android:textSize="17dp"
         android:gravity="center_vertical"
-        android:paddingLeft="15dp"
-        android:background="@drawable/mine_item1"/>
+        android:paddingLeft="15dp" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@drawable/mine_item"/>
+    <TextView
+        android:id="@+id/xtsz"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="系统设置"
         android:textColor="#242424"
         android:textSize="17dp"
         android:gravity="center_vertical"
-        android:paddingLeft="15dp"
+        android:paddingLeft="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
         android:background="@drawable/mine_item"/>
 </LinearLayout>

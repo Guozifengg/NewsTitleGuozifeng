@@ -28,6 +28,7 @@
             android:text="+"
             android:textSize="30dp"
             android:layout_marginLeft="340dp"
+            android:textColor="#2d2d2d"
             android:background="@drawable/add_title"
             android:gravity="center"
             android:id="@+id/addTitle"

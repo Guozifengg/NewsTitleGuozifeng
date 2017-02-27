@@ -17,10 +17,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //默认设置为日件模式
-        AppCompatDelegate.setDefaultNightMode(
-                AppCompatDelegate.MODE_NIGHT_NO
-        );
         //初始化Xutils
         x.Ext.init(this);
         //初始化ImageLoader

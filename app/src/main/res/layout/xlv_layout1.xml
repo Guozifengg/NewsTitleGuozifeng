@@ -2,35 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp">
+    >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_weight="3"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+        <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:id="@+id/title1"
-            android:textSize="17dp"
-            android:textColor="#2D2D2D"
-            android:text="TextView"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title1"
+                android:textSize="17dp"
+                android:textColor="#2D2D2D"
+                android:text="TextView"/>
 
-        <TextView
-            android:layout_below="@+id/title1"
-            android:layout_marginTop="60dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/title12"
-            android:textSize="14dp"
-            android:text="TextView"/>
-    </RelativeLayout>
+            <TextView
+                android:layout_below="@+id/title1"
+                android:layout_marginTop="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title12"
+                android:textSize="14dp"
+                android:textColor="#8a8a8a"
+                android:text="TextView"/>
+        </RelativeLayout>
 
         <ImageView
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:id="@+id/img11"
             android:src="@mipmap/ic_launcher"/>
+    </LinearLayout>
+
 
 </LinearLayout>

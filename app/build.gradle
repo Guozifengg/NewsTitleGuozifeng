@@ -29,4 +29,6 @@ dependencies {
     compile 'org.xutils:xutils:3.3.40'
     compile project(':library')
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile files('libs/open_sdk_r5778.jar')
 }

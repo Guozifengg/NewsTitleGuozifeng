@@ -76,7 +76,7 @@ public class TitleFragment extends Fragment implements DataInterface<JsonBean>,P
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url",t.get(i).getUrl_3w());
+                intent.putExtra("url",t.get(i-1).getUrl_3w());
                 startActivity(intent);
             }
         });
