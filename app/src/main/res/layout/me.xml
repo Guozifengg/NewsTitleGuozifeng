@@ -218,6 +218,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/bj_tv1"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/mine_item"/>
@@ -232,6 +233,7 @@
         android:paddingLeft="15dp" />
 
     <TextView
+        android:id="@+id/bj_tv2"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/mine_item"/>
@@ -245,6 +247,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="15dp" />
     <TextView
+        android:id="@+id/bj_tv3"
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
         android:background="@drawable/mine_item"/>
@@ -259,6 +262,7 @@
     android:paddingLeft="15dp" />
 
     <TextView
+        android:id="@+id/bj_tv4"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/mine_item"/>
@@ -273,6 +277,7 @@
         android:paddingLeft="15dp" />
 
     <TextView
+        android:id="@+id/bj_tv5"
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
         android:background="@drawable/mine_item"/>
@@ -287,6 +292,7 @@
         android:paddingLeft="15dp" />
 
     <TextView
+        android:id="@+id/bj_tv6"
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
         android:background="@drawable/mine_item"/>
@@ -301,6 +307,7 @@
         android:paddingLeft="15dp" />
 
     <TextView
+        android:id="@+id/bj_tv7"
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
         android:background="@drawable/mine_item"/>

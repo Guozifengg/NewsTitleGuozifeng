@@ -1,8 +1,10 @@
 package guozifeng.bwie.com.newstitleguozifeng;
 
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -58,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView qq;
     private ImageView weibo;
     private ImageView nightButton;
+    private TextView[] bjTextArray;
+    private LinearLayout linear;
+    private TextView dhx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,9 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .add(R.id.frame,new Focus()).hide(new Focus())
                 .add(R.id.frame,new Mine()).hide(new Mine());
         tran.commit();*/
-
     }
-
 
     @Override
     public void onClick(View view) {
@@ -188,6 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getEvents(Message ev) {
         rlt = (RelativeLayout) findViewById(R.id.main_layout);
+        linear = (LinearLayout) findViewById(R.id.ll);
+        dhx = (TextView) findViewById(R.id.dhx);
         LinearLayout nightBack = ev.getYejian();
         xxtz = ev.getXxtz();
         ttsc=ev.getTtsc();
@@ -199,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         qq=ev.getQq();
         weibo=ev.getWeibo();
         nightButton=ev.getNightButton();
+        bjTextArray = ev.getBjTextArray();
         //设置监听
         nightBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,16 +234,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             window.setStatusBarColor(getResources().getColor(ThemeManager.getCurrentThemeRes(MainActivity.this, R.color.colorPrimary)));
         }
 
+        Resources resources = getBaseContext().getResources();
         if(xxtz.getCurrentTextColor()==Color.BLACK){
             shouji.setImageResource(R.mipmap.shoujidenglu1);
             qq.setImageResource(R.mipmap.qqdenglu1);
             weibo.setImageResource(R.mipmap.weibodenglu1);
             nightButton.setImageResource(R.mipmap.yejian);
+            for(int i=0;i<bjTextArray.length;i++){
+                Drawable HippoDrawable = resources.getDrawable(R.drawable.bai);
+                bjTextArray[i].setBackgroundDrawable(HippoDrawable);
+            }
+            Drawable HippoDrawable1 = resources.getDrawable(R.drawable.dh);
+            Drawable HippoDrawable2 = resources.getDrawable(R.drawable.dhx);
+            linear.setBackgroundDrawable(HippoDrawable1);
+            dhx.setBackgroundDrawable(HippoDrawable2);
         }else{
             shouji.setImageResource(R.mipmap.shoujidenglu2);
             qq.setImageResource(R.mipmap.qqdenglu2);
             weibo.setImageResource(R.mipmap.weibodenglu2);
             nightButton.setImageResource(R.mipmap.rijian);
+            for(int i=0;i<bjTextArray.length;i++){
+//                Resources resources = getBaseContext().getResources();
+                Drawable HippoDrawable = resources.getDrawable(R.drawable.yejian);
+                bjTextArray[i].setBackgroundDrawable(HippoDrawable);
+            }
+
+            Drawable HippoDrawable1 = resources.getDrawable(R.drawable.dh1);
+            Drawable HippoDrawable2 = resources.getDrawable(R.drawable.dhx1);
+            linear.setBackgroundDrawable(HippoDrawable1);
+            dhx.setBackgroundDrawable(HippoDrawable2);
         }
     }
 

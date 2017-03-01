@@ -23,8 +23,9 @@ public class Message {
     private ImageView qq;
     private ImageView weibo;
     private ImageView nightButton;
+    private TextView[] bjTextArray;
 
-    public Message(LinearLayout yejian, TextView xxtz, TextView ttsc, TextView jdtg, TextView wybl, TextView yhfk, TextView xtsz, ImageView shouji, ImageView qq, ImageView weibo, ImageView nightButton) {
+    public Message(LinearLayout yejian, TextView xxtz, TextView ttsc, TextView jdtg, TextView wybl, TextView yhfk, TextView xtsz, ImageView shouji, ImageView qq, ImageView weibo, ImageView nightButton, TextView[] bjTextArray) {
         this.yejian = yejian;
         this.xxtz = xxtz;
         this.ttsc = ttsc;
@@ -36,6 +37,7 @@ public class Message {
         this.qq = qq;
         this.weibo = weibo;
         this.nightButton = nightButton;
+        this.bjTextArray = bjTextArray;
     }
 
     public LinearLayout getYejian() {
@@ -80,5 +82,9 @@ public class Message {
 
     public ImageView getNightButton() {
         return nightButton;
+    }
+
+    public TextView[] getBjTextArray() {
+        return bjTextArray;
     }
 }

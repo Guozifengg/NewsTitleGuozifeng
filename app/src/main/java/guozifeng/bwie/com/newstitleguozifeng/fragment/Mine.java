@@ -29,6 +29,7 @@ import com.tencent.tauth.UiError;
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import guozifeng.bwie.com.newstitleguozifeng.R;
 import guozifeng.bwie.com.newstitleguozifeng.requestData.Message;
@@ -68,6 +69,9 @@ public class Mine extends Fragment{
             handler.sendEmptyMessageDelayed(0,3000);
         }
     };
+
+    private TextView[] bjTextArray;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,22 +82,6 @@ public class Mine extends Fragment{
         return view1;
     }
 
-    private void initView() {
-        enterSuccess = (RelativeLayout) view1.findViewById(R.id.enterSuccess);
-        xxtz = (TextView) view1.findViewById(R.id.xxtz);
-        ttsc = (TextView) view1.findViewById(R.id.ttsc);
-        jdtg = (TextView) view1.findViewById(R.id.jdtg);
-        wybl = (TextView) view1.findViewById(R.id.wybl);
-        yhfk = (TextView) view1.findViewById(R.id.yhfk);
-        xtsz = (TextView) view1.findViewById(R.id.xtsz);
-
-        shouji = (ImageView) view1.findViewById(R.id.shouji);
-        qq = (ImageView) view1.findViewById(R.id.qq);
-        weibo = (ImageView) view1.findViewById(R.id.weibo);
-        nightButton = (ImageView) view1.findViewById(R.id.yejian);
-
-
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -104,7 +92,7 @@ public class Mine extends Fragment{
         yejian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new Message(yejian,xxtz,ttsc,jdtg,wybl,yhfk,xtsz,shouji,qq,weibo,nightButton));
+                EventBus.getDefault().post(new Message(yejian,xxtz,ttsc,jdtg,wybl,yhfk,xtsz,shouji,qq,weibo,nightButton,bjTextArray));
 
             }
         });
@@ -190,6 +178,31 @@ public class Mine extends Fragment{
             Tencent.onActivityResultData(requestCode,resultCode,data,mIUiListener);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    private void initView() {
+        enterSuccess = (RelativeLayout) view1.findViewById(R.id.enterSuccess);
+        xxtz = (TextView) view1.findViewById(R.id.xxtz);
+        ttsc = (TextView) view1.findViewById(R.id.ttsc);
+        jdtg = (TextView) view1.findViewById(R.id.jdtg);
+        wybl = (TextView) view1.findViewById(R.id.wybl);
+        yhfk = (TextView) view1.findViewById(R.id.yhfk);
+        xtsz = (TextView) view1.findViewById(R.id.xtsz);
+
+        shouji = (ImageView) view1.findViewById(R.id.shouji);
+        qq = (ImageView) view1.findViewById(R.id.qq);
+        weibo = (ImageView) view1.findViewById(R.id.weibo);
+        nightButton = (ImageView) view1.findViewById(R.id.yejian);
+
+       TextView bj_tv1 = (TextView) view1.findViewById(R.id.bj_tv1);
+        TextView bj_tv2 = (TextView) view1.findViewById(R.id.bj_tv2);
+        TextView bj_tv3 = (TextView) view1.findViewById(R.id.bj_tv3);
+        TextView bj_tv4 = (TextView) view1.findViewById(R.id.bj_tv4);
+        TextView bj_tv5 = (TextView) view1.findViewById(R.id.bj_tv5);
+        TextView bj_tv6 = (TextView) view1.findViewById(R.id.bj_tv6);
+        TextView bj_tv7 = (TextView) view1.findViewById(R.id.bj_tv7);
+        bjTextArray = new TextView[]{bj_tv1,bj_tv2,bj_tv3,bj_tv4,bj_tv5,bj_tv6,bj_tv7};
     }
 
 }

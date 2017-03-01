@@ -10,5 +10,10 @@
     <color name="textColor_night">#FFFFFF</color>
     <color name="backgroundColor">#FFFFFF</color>
     <color name="backgroundColor_night">#3b3b3b</color>
-
+    <drawable name="yejian">#3c3c3c</drawable>
+    <drawable name="bai">#d4d4d4</drawable>
+    <drawable name="dh">#f7f7f7</drawable>
+    <drawable name="dh1">#353535</drawable>
+    <drawable name="dhx">#ededed</drawable>
+    <drawable name="dhx1">#424242</drawable>
 </resources>

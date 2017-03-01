@@ -13,7 +13,7 @@
         android:id="@+id/ll"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/dibu_bj">
+        android:background="#f7f7f7">
 
         <LinearLayout
             android:id="@+id/homell"
@@ -96,11 +96,17 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ededed"
+        android:id="@+id/dhx"
+        android:layout_above="@+id/ll"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame"
-        android:layout_above="@+id/ll">
+        android:layout_above="@+id/dhx">
 
     </FrameLayout>
 </RelativeLayout>

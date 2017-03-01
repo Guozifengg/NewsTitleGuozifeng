@@ -5,9 +5,40 @@
     android:layout_height="match_parent"
     tools:context="guozifeng.bwie.com.newstitleguozifeng.activity.SearchActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:id="@+id/searchTop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:id="@+id/tt"/>
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/backSpace"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@mipmap/houtui"/>
+
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:hint="  搜你想搜的"
+            android:background="@drawable/ss_bj"
+            android:cursorVisible="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜索"
+            android:textSize="22dp"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/searchTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d2d3d3"/>
 </RelativeLayout>
