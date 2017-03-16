@@ -75,6 +75,7 @@
                 android:src="@mipmap/qqdenglu1"
                 android:id="@+id/toxiang"/>
             <TextView
+                android:id="@+id/qqname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="独家记忆"

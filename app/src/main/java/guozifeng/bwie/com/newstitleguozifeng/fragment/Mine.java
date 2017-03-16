@@ -18,7 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -61,16 +63,11 @@ public class Mine extends Fragment{
     private UserInfo mUserInfo;
     private RelativeLayout enterSuccess;
 
-    private Handler handler=new Handler(){
-        @Override
-        public void handleMessage(android.os.Message msg) {
-            super.handleMessage(msg);
-            enterSuccess.setVisibility(View.VISIBLE);
-            handler.sendEmptyMessageDelayed(0,3000);
-        }
-    };
 
     private TextView[] bjTextArray;
+    private ImageView toxiang;
+    private TextView qqname;
+    private DisplayImageOptions options;
 
     @Nullable
     @Override
@@ -78,6 +75,11 @@ public class Mine extends Fragment{
         view1 = View.inflate(getActivity(), R.layout.me,null);
 
         yejian = (LinearLayout) view1.findViewById(R.id.yejianmoshi);
+        toxiang = (ImageView) view1.findViewById(R.id.toxiang);
+        qqname = (TextView) view1.findViewById(R.id.qqname);
+        //照片设置成圆形
+        options = new DisplayImageOptions.Builder()
+                .displayer(new RoundedBitmapDisplayer(180)).build();
         initView();
         return view1;
     }
@@ -103,9 +105,8 @@ public class Mine extends Fragment{
 
                 mIUiListener = new BaseUiListener();
                 //all表示获取所有权限
-                mTencent.login(getActivity(),"all", mIUiListener);
+                mTencent.login(Mine.this,"all", mIUiListener);
 
-                handler.sendEmptyMessageDelayed(0,3000);
             }
         });
     }
@@ -134,6 +135,14 @@ public class Mine extends Fragment{
                     @Override
                     public void onComplete(Object response) {
                         Log.e(TAG,"登录成功"+response.toString());
+                        JSONObject object=(JSONObject) response;
+                        String nickname = object.optString("nickname");
+                        String figureurl_qq_2 = object.optString("figureurl_qq_2");
+//                        Log.e(TAG,nickname+"    "+figureurl_qq_2 );
+                        enterSuccess.setVisibility(View.VISIBLE);
+
+                        ImageLoader.getInstance().displayImage(figureurl_qq_2,toxiang,options);
+                        qqname.setText(nickname);
                     }
 
                     @Override

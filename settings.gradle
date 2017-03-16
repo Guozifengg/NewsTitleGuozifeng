@@ -1,1 +1,1 @@
-include ':app', ':xlistview2', ':library'
+include ':app', ':library'
